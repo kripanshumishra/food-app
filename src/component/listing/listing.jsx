@@ -1,19 +1,25 @@
 import React from "react";
 import "./listing.css";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-
-
+import { useState, useEffect,useContext} from "react";
+import {ItemContextContainer} from '../context/itemcontext'
+// import {Itemcontext} from '../context/itemcontext'
 export default function Listing({mealId}) {
-  const [item, SetItem] = useState("");
-  useEffect(() => {
-    fetch(`https://novzomatoapi.herokuapp.com/restaurants?mealid=${mealId}`)
-      .then((data) => data.json())
-      .then((data) => {
-        console.log(data);
-        return SetItem(data);
-      });
-  }, []);
+  // const [item, SetItem] = useState("");
+  // useEffect(() => {
+  //   fetch(`https://novzomatoapi.herokuapp.com/restaurants?mealid=${mealId}`)
+  //     .then((data) => data.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       return SetItem(data);
+  //     });
+  // }, []);
+
+  // const [item,setItem]= useState(useContext(ItemContextContainer).Item)
+  const item = useContext(ItemContextContainer).Item
+//   console.log(item,">>>>>>")
+ 
+  
   if (item && item.length > 0) {
     return (
       <>

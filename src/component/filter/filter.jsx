@@ -1,10 +1,13 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import './filter.css'
+import { ItemContextContainer } from '../context/itemcontext'
+import Cuisinefilter from './cuisinefilter'
 export default function Filter() {
+    const {OnCostFilterClick} = useContext(ItemContextContainer)
   return (
     <div className='filter-container'>
         <center>Cost Filter</center>
-                <div className='filter' >
+                <div className='filter' onClick={OnCostFilterClick} >
                     <label >
                         <input type="radio" value="" name="cuisine"/>All
                     </label>
@@ -24,6 +27,8 @@ export default function Filter() {
                         <input type="radio" value="901-1500" name="cuisine"/>901-1500
                     </label>
                 </div>
+
+                <Cuisinefilter/>
     </div>
   )
 }
