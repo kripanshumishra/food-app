@@ -28,7 +28,13 @@ export default function ResMenu({ resId }) {
     fetch(`${url}${resId}`)
       .then((data) => data.json())
       .then((data) => {
+        data =data.map(x=>{
+          let qty = 1
+          return {...x,qty}
+          
+        })
         SetResMenu(data);
+        console.log(data,"^^^^^^^^^^^^^^")
       });
   }, []);
 

@@ -10,7 +10,7 @@ export default function Payment() {
     useEffect(() => {
         let prev = userInfo?userInfo:{};
         setUserInfo(
-            
+             
             {...prev,
                 price:(location.state),
                 name:user.name,
@@ -21,25 +21,9 @@ export default function Payment() {
     
       
     }, [])
-    if(sessionStorage.getItem('isLogin') === 'false'){
+    if(sessionStorage.getItem('isLogin')!=null && sessionStorage.getItem('isLogin') === 'true'){
         return(
             <>
-                <Header/>
-                <center>
-                    <h2>Login First To Place Order</h2>
-                </center>
-            </>
-
-        )
-    }
-    // console.log(this.state)
-    // if user is login
-   
-    
-    
-    // console.log(userInfo)
-    return(
-        <>
             <Header/>
             <div className="app-form-outer-container justify-content-start">
                 <hr/>
@@ -84,6 +68,21 @@ export default function Payment() {
                 </div>
             </div>
         </>
+            
+
+        )
+    }
+    // console.log(this.state)
+    // if user is login
+   
+    
+    return(
+        <>
+                <Header/>
+                <center>
+                    <h2>Login First To Place Order</h2>
+                </center>
+            </>
     )
   
 }
