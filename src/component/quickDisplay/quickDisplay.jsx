@@ -40,7 +40,7 @@ export default function QuickDisplay() {
         <p className="h2 fw-bolder mt-5">Quick Display</p>
         <p className="h5">Find Restaurants By MealType</p>
           <div className="quickSearch-grid">
-          {mealItems}
+          {mealItems.length?mealItems:<h2 className="mt-3">please wait a moment.... </h2>}
           </div>
         </div>
     </>
