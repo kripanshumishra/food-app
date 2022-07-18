@@ -11,17 +11,17 @@ export default function Filter() {
                     <label >
                         <input type="radio" value="" name="cuisine"/>All
                     </label>
-                    <label >
+                    {/* <label >
                         <input type="radio" value="100-300" name="cuisine"/>100-300
-                    </label>
+                    </label> */}
                     <label >
-                        <input type="radio" value="301-500" name="cuisine"/>301-500
+                        <input type="radio" value="301-500" name="cuisine"/>100-500
                     </label>
-                    <label >
+                    {/* <label >
                         <input type="radio" value="501-700" name="cuisine"/>501-700
-                    </label>
+                    </label> */}
                     <label >
-                        <input type="radio" value="701-900" name="cuisine"/>701-900
+                        <input type="radio" value="701-900" name="cuisine"/>501-900
                     </label>
                     <label >
                         <input type="radio" value="901-1500" name="cuisine"/>901-1500

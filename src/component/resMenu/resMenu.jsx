@@ -34,7 +34,7 @@ export default function ResMenu({ resId }) {
           
         })
         SetResMenu(data);
-        console.log(data,"^^^^^^^^^^^^^^")
+        // console.log(data,"^^^^^^^^^^^^^^")
       });
   }, []);
 

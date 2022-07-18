@@ -8,6 +8,7 @@ export default()=>{
   const [errorMessages, setErrorMessages] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [credential,setCredential] = useState({})
+  const [ disabled,setDisabled ] =useState(false)
   const navigate= useNavigate()
   const stateUpdatePass = (event)=>{
    setCredential(prevState => { // Object.assign would also work
@@ -24,7 +25,8 @@ const stateUpdateEmail = (event)=>{
 }
   
   const handleSubmit = (event) => {
-   
+   console.log(credential)
+   setDisabled(true)
     //Prevent page reload
     event.preventDefault();
 
@@ -39,6 +41,7 @@ const stateUpdateEmail = (event)=>{
         })
       .then(data=>data.json())
       .then(data=>{
+        setDisabled(false)
         // console.log("daata came")
         console.log("data",data,">>>>")
         if(data.auth&&data.auth === true){
@@ -68,15 +71,18 @@ const stateUpdateEmail = (event)=>{
       <form >
         <div className="input-container">
           <label>Username </label>
-          <input type="text" name="uname" required onChange={stateUpdateEmail} />
+          <input type="text" name="uname"required onChange={stateUpdateEmail} />
           {/* {renderErrorMessage()} */}
+          <p>username: <b>kri@gmail.com</b></p>
         </div>
         <div className="input-container">
           <label>Password </label>
           <input type="password" name="pass" required onChange={stateUpdatePass}/>
+          <p>password: <b>hash</b></p>
           {renderErrorMessage()}
         </div>
         <div className="button-container">
+          <span style={{display:!disabled?"none":""}}>loading</span>
           <button className="submit-btn" onClick={handleSubmit}>submit</button>
         </div>
       </form>
@@ -90,7 +96,12 @@ const stateUpdateEmail = (event)=>{
       <div className="login-form">
         <div className="title">Sign In</div>
         {isSubmitted ? navigate("/")  : renderForm}
+        <div>
+        
+       
       </div>
+      </div>
+      
     </div>
     </>
   );

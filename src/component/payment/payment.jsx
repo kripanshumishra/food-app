@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../Header/navbar.jsx'
 import { useState,useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 export default function Payment() {
     const location = useLocation()
     const [userInfo,setUserInfo]=useState({})
@@ -13,15 +13,15 @@ export default function Payment() {
              
             {...prev,
                 price:(location.state),
-                name:user.name,
-                email:user.email,
-                phone:user.phone
+                name:user?user.name : "",
+                email:user?user.email : "",
+                phone:user?user.phone : ""
             }
         )
     
       
     }, [])
-    if(sessionStorage.getItem('isLogin')!=null && sessionStorage.getItem('isLogin') === 'true'){
+    if(sessionStorage.getItem('isLogin') && sessionStorage.getItem('isLogin') === 'true'  ){
         return(
             <>
             <Header/>
@@ -80,7 +80,10 @@ export default function Payment() {
         <>
                 <Header/>
                 <center>
-                    <h2>Login First To Place Order</h2>
+                    <h1>Login First To Place Order</h1>
+                    <nav >
+                        <NavLink style={{ fontSize:"25px" }} to="/login">click here to login</NavLink>
+                    </nav>
                 </center>
             </>
     )

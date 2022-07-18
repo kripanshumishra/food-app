@@ -13,9 +13,9 @@ export default function Cuisinefilter() {
         <label className="radio">
             <input type="radio" value="1" name="cuisine"/>North Indian
         </label>
-        <label className="radio">
+        {/* <label className="radio">
             <input type="radio" value="2" name="cuisine"/>South Indian
-        </label>
+        </label> */}
         <label className="radio">
             <input type="radio" value="3" name="cuisine"/>Chinese
         </label>
